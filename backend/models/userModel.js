@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
     url: {
       type: String,
       default:
-        "https://res.cloudinary.com/djbazdbnx/image/upload/v1679662727/banners/random-banner_grrrqf.jpg",
+        "https://res.cloudinary.com/dgbbrqqiq/image/upload/v1718286782/background_oeotqm.jpg",
     },
   },
   // Edit After
