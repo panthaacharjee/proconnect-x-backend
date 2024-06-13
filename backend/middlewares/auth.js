@@ -5,11 +5,12 @@ const jwt = require("jsonwebtoken");
 
 exports.isAuthenticatedUser = catchAsyncError(async (req, res, next) => {
   const  token =  req.headers["authorization"] || req.cookies;
+  const bearer = token.split(" ")
 
-  if (!token) {
+  if (!bearer[1]) {
     return next(new ErrorHandler("Please Login to access this resource", 401));
   }
-  const decodeData = jwt.verify(token, process.env.JWT_SECRET);
+  const decodeData = jwt.verify(bearer[1], process.env.JWT_SECRET);
   req.user = await User.findById(decodeData.id);
   next();
 });
